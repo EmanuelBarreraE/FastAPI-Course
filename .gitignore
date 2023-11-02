@@ -1,27 +1,3 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Virtual environment
+__pycache__
 venv/
-env/
-
-# Logs y archivos temporales
-*.log
-*.swp
-*.tmp
-
-# Archivos de configuración específicos del entorno
 .env
-
-# Archivo de base de datos SQLite
-*.db
-
-# Carpeta de dependencias de Node.js
-node_modules/
-
-# Carpeta de dependencias de Python
-lib/
-lib64/

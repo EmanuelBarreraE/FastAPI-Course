@@ -16,15 +16,26 @@ class PostBase(BaseModel):
     published: bool = True
 #-------------------------------------#
 
-#------------Create a Post------------#
+#------------Create the Post Response------------#
 class PostCreate(PostBase):
     pass
 #-------------------------------------#
+
+#------------Create a UserResponse scheme------------#
+class UserOut(BaseModel):
+    email: EmailStr
+    created_at: datetime
+    
+    class Config:
+        orm_mode = True
+#----------------------------------------------------#
 
 #------------Create the response scheme------------#
 class Post(PostBase):
     id: int
     created_at: datetime
+    owner_id: int
+    owner: UserOut
     
     #Orm_mode -> por que se usa
     class Config:
@@ -37,14 +48,7 @@ class UserCreate(BaseModel):
     password: str
 #------------------------------------------------#
  
-#------------Create a UserResponse scheme------------#
-class UserOut(BaseModel):
-    email: EmailStr
-    created_at: datetime
-    
-    class Config:
-        orm_mode = True
-#----------------------------------------------------#
+
 
 #------------Login scheme------------#
 class UserLogin(BaseModel):
