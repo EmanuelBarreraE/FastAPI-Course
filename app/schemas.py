@@ -3,10 +3,10 @@ from datetime import datetime
 from typing import Optional
 from pydantic.types import conint
 #------------Create table posts------------#
-class Post(BaseModel):
-    title: str
-    content: str
-    published: bool = True
+# class Post(BaseModel):
+#     title: str
+#     content: str
+#     published: bool = True
 #------------------------------------------#
 
 #------------Create a PostBase scheme------------#
@@ -27,7 +27,7 @@ class UserOut(BaseModel):
     created_at: datetime
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 #----------------------------------------------------#
 
 #------------Create the response scheme------------#
@@ -39,7 +39,7 @@ class Post(PostBase):
     
     #Orm_mode -> por que se usa
     class Config:
-        orm_mode = True
+        from_attributes = True #it was orm_mode = True 
 #---------------------------------------------------#
 
 #------------PostVote scheme------------#
@@ -77,5 +77,5 @@ class TokenData(BaseModel):
 #------------Vote scheme------------#
 class Vote(BaseModel):
     post_id: int
-    dir: conint(le=1)
+    dir: conint(le=1) # type: ignore
 #----------------------------------------#
